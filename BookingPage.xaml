@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarberShopMaui.BookingPage"
+             Title="BookingPage">
+    <StackLayout Margin="10">
+        <Label Text="Book Appointment" FontSize="20" FontAttributes="Bold" />
+
+        <!-- Picker for selecting BarberShop -->
+        <Label Text="Select BarberShop" />
+        <Picker x:Name="barberShopPicker" Title="Select BarberShop" ItemsSource="{Binding BarberShops}" ItemDisplayBinding="{Binding Name}" />
+
+        <!-- Date and Time Pickers -->
+        <Label Text="Select Date" />
+        <DatePicker x:Name="bookingDatePicker" />
+
+        <Label Text="Select Time" />
+        <TimePicker x:Name="bookingTimePicker" />
+
+        <Label Text="Select Category" />
+        <Picker x:Name="categoryPicker" SelectedItem="{Binding Category}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Hair</x:String>
+                    <x:String>Beard</x:String>
+                    <x:String>Hair &amp; Beard</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button Text="Save" Clicked="OnSaveButtonClicked" />
+        <Button Text="Delete" Clicked="OnDeleteButtonClicked" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarberShopMaui.ShopPage"
+             Title="ShopPage">
+
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Shop Name:" />
+            <Entry Text="{Binding Name}" Placeholder="Enter shop name" />
+
+            <Label Text="Address:" />
+            <Entry Text="{Binding Address}" Placeholder="Enter address" />
+
+            <Label Text="Start Hour:" />
+            <TimePicker Time="{Binding Start, Mode=TwoWay}" />
+
+            <Label Text="End Hour:" />
+            <TimePicker Time="{Binding End, Mode=TwoWay}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Save Shop" Grid.Column="0" MaximumWidthRequest="200" Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteButtonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
